@@ -66,15 +66,15 @@ Class example
 ### Using Statements: 
 (can be declared globally, in namespaces, and in classes)
 ```code
-	using enum ``enum values no longer need to explicitly specify if they are from this class 
-	using someFunc = Func ``alias for someFunc
-	using someNamespace ``includes all names from someNamespace
+	using enum // enum values no longer need to explicitly specify if they are from this class 
+	using someFunc = Func // alias for someFunc
+	using someNamespace // includes all names from someNamespace
 ```
 ### Pattern Matching:
 ```code
 	someFunc(a, b, c)
-	| 1, 2, 3 > ``code to execute in this input scenario
-	| [a], b, _ > ``a is a list of any type, b can be any type, and c is blank
+	| 1, 2, 3 > // code to execute in this input scenario
+	| [a], b, _ > // a is a list of any type, b can be any type, and c is blank
 ```
 
 ### Function Fragments:
