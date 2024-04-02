@@ -1,6 +1,3 @@
-Below is your Dream Programming Language Design formatted in Markdown, including code blocks and section headers for clarity:
-
-```markdown
 # Dream Programming Language Design
 
 ## Concepts
