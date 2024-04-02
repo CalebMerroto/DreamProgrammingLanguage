@@ -1,11 +1,14 @@
+Below is your Dream Programming Language Design formatted in Markdown, including code blocks and section headers for clarity:
+
+```markdown
 # Dream Programming Language Design
 
 ## Concepts
-Concepts in ScriptForge define syntactical contracts without enforcing specific semantics. They are used to specify the required operations for types, and can be used interchangably with types.
+Concepts in ScriptForge define syntactical contracts without enforcing specific semantics. They are used to specify the required operations for types and can be used interchangeably with types.
 
 ### Example Concepts
 
-```code
+```plaintext
 // the "- a" after the concept names refers to the example item that satisfies the concept
 // (not an actual instance, just a demonstrator)
 Concept eq - a
@@ -40,69 +43,74 @@ Concept someInterface - a
 ```
 
 ### Example Class
-```code
+
+```plaintext
 Class example
-	example() //default constructor
-	example(a, int b, c = thing)
-	
-	~example() //destructor declarations work the same as constructor declarations
-	
-	someMehtod() //a method that returns a variable of any type, or no return value at all
-	
-	eq someMethod2() // a method that specifically returns something that satisfies eq
-	
-	infix bool ==(example e) //operator declaration
-	
-	[int] data //a list of ints 
-	[] moreData //a type-independant list
-	
-	-len-   // creates a calculated field named len. used like accessing a field, but behind the scenes call the len() function. this is only an option for functions without parameters
-	int -itm- // creates a calculated field of type int
-	
-	infix op() // allows the class to be called as an infix operator
-	op() // allows the class to be called like a function 
+    example() //default constructor
+    example(a, int b, c = thing)
+    
+    ~example() //destructor declarations work the same as constructor declarations
+    
+    someMethod() //a method that returns a variable of any type, or no return value at all
+    
+    eq someMethod2() // a method that specifically returns something that satisfies eq
+    
+    infix bool ==(example e) //operator declaration
+    
+    [int] data //a list of ints 
+    [] moreData //a type-independent list
+    
+    -len-   // creates a calculated field named len. Used like accessing a field, but behind the scenes call the len() function. This is only an option for functions without parameters
+    int -itm- // creates a calculated field of type int
+    
+    infix op() // allows the class to be called as an infix operator
+    op() // allows the class to be called like a function 
 ```
 
-### Using Statements: 
+### Using Statements
+
 (can be declared globally, in namespaces, and in classes)
-```code
-	using enum // enum values no longer need to explicitly specify if they are from this class 
-	using someFunc = Func // alias for someFunc
-	using someNamespace // includes all names from someNamespace
-```
-### Pattern Matching:
-```code
-	someFunc(a, b, c)
-	| 1, 2, 3 > // code to execute in this input scenario
-	| [a], b, _ > // a is a list of any type, b can be any type, and c is blank
+
+```plaintext
+using enum // enum values no longer need to explicitly specify if they are from this class 
+using someFunc = Func // alias for someFunc
+using someNamespace // includes all names from someNamespace
 ```
 
-### Function Fragments:
-```code
-	frag someFragment(a, int b)
-		for each printable c in a
-			for each i between 0 - b
-				{{one}} //fragment attachment poing "one"
-		return c
-	
-	
-	someFunc = someFragment>one()
-		
-		
-	//equivilent to writing:
-	someFunc(a, int b)
-		for each printable c in a
-			for each i between 0 - b
-				c:i
-				out << c
-		return c
+### Pattern Matching
+
+```plaintext
+someFunc(a, b, c)
+    | 1, 2, 3 > // code to execute in this input scenario
+    | [a], b, _ > // a is a list of any type, b can be any type, and c is blank
 ```
-### keywords:
-	**await:** while you do not need to declare functions async, you do need to specify when awaiting asynchronous results
-	**comp:** specifies a compile-time requirement (so if you don't need run-time dynamic typing you can opt out of it). 
-		that said, the compiler will check your code, and if it doesn't make use of run-time type checking it will 
-		still make these optimizations. Therefore this feature mostly exists as a means to make it throw an error for 
-		run-time type deduction, when you explicity don't want to use that.
-	**const:** specifies a constant value
-	**infix:** specifies a function with infix notation
-	**op:** used for bracket-style operators like (),{},[], and <>, so that they are not confused with container types
+
+### Function Fragments
+
+```plaintext
+frag someFragment(a, int b)
+    for each printable c in a
+        for each i between 0 - b
+            {{one}} //fragment attachment point "one"
+    return c
+
+
+someFunc = someFragment>one()
+
+
+//equivalent to writing:
+someFunc(a, int b)
+    for each printable c in a
+        for each i between 0 - b
+            c:i
+            out << c
+    return c
+```
+
+### Keywords
+
+- **await:** While you do not need to declare functions async, you do need to specify when awaiting asynchronous results.
+- **comp:** Specifies a compile-time requirement (so if you don't need run-time dynamic typing you can opt out of it). The compiler will check your code, and if it doesn't make use of run-time type checking, it will still make these optimizations. Therefore, this feature mostly exists as a means to make it throw an error for run-time type deduction when you explicitly don't want to use that.
+- **const:** Specifies a constant value.
+- **infix:** Specifies a function with infix notation.
+- **op:** Used for bracket-style operators like `()`, `{}`, `[]`, and `<>`, so that they are not confused with container types.
