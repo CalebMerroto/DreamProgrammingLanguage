@@ -6,7 +6,8 @@ Concepts in ScriptForge define syntactical contracts without enforcing specific 
 ### Example Concepts
 
 ```code
-// the "- a" after the concept names refers to the example item that satisfies the concept (not an actual instance, just a demonstrator)
+// the "- a" after the concept names refers to the example item that satisfies the concept
+// (not an actual instance, just a demonstrator)
 Concept eq - a
     a == b - bool
     a != b - bool
